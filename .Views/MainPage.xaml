@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Final.Views.MainPage"
+             Title="---">
+
+    <ContentPage.Padding>
+        <!-- Ajusta los valores de padding según sea necesario: izquierda, arriba, derecha, abajo -->
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="UWP" Value="40,40,40,40" />
+        </OnPlatform>
+    </ContentPage.Padding>
+
+    <ScrollView>
+    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+        
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <!-- Definición de las filas de la Columna 0 -->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.5*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <!-- Elementos en la primera grid -->
+                <Label Grid.Row="0" Text="AutoPerfecto" FontFamily="KronaOne" FontSize="50" HorizontalOptions="Center" VerticalOptions="End" />
+                <Label Grid.Row="1" Text="En AutoPerfecto, ofrecemos una experiencia automotriz incomparable. Desde la compra hasta el mantenimiento, nos enfocamos en ti. Con atención personalizada y tecnología avanzada, hacemos que todo sea fácil y emocionante. Encuentra el vehículo perfecto y disfruta de servicios de primera clase, todo diseñado para superar tus expectativas. ¡Únete a la revolución automotriz hoy mismo!" 
+                       HorizontalOptions="Center" VerticalOptions="Start" LineBreakMode="WordWrap" 
+                       Margin="0,30,10,0" FontSize="20"/>
+            </Grid>
+
+            <!-- Elementos en la segunda grid -->
+            <Image x:Name="firstImage" Source="car_one.png" Grid.Row="0" 
+                Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" Margin="10,0,0,0"/>
+
+            <Image x:Name="secondImage" Source="car_two.png" IsVisible="False" Grid.Row="0" 
+                Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" Margin="10,0,0,0"/>
+
+            <Image x:Name="thirdImage" Source="car_tree.png" IsVisible="False" Grid.Row="0" 
+                Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" Margin="10,0,0,0"/>
+
+        </Grid>
+
+        <Button x:Name="Siguiente" Text="¡Empecemos!" Clicked="btnSiguiente" Margin="50,50,50,50"/>
+
+    </StackLayout>
+    </ScrollView>
+</ContentPage>

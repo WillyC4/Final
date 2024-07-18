@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Final.ConsultaPerfecta"
+             Title="ConsultaPerfecta"
+             xmlns:viewModels="clr-namespace:Final.ViewModels;assembly=Final">
+
+    <ContentPage.BindingContext>
+        <viewModels:ConsultaPerfectaViewModel />
+    </ContentPage.BindingContext>
+
+    <!--**********************************************-->
+    <ScrollView>
+        <StackLayout Margin="20,20,20,20" >
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" Padding="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" Text="Buscar Stock" Command="{Binding LoadDataCommand}" Margin="30,30,30,30" />
+                    <Button Grid.Column="1" x:Name="Siguiente" Text="Proceder a Comprar" Clicked="btnSiguiente" Margin="30,30,30,30"/>
+                   
+                </Grid>
+            </Grid>
+
+            
+
+            <!--**********************************************-->
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <!-- Fila para los títulos -->
+                    <RowDefinition Height="*" />
+                    <!-- Fila para los datos -->
+                </Grid.RowDefinitions>
+
+                <!-- Encabezado con títulos -->
+                <Grid Grid.Row="0" Padding="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="ID" Grid.Column="0" FontAttributes="Bold" />
+                    <Label Text="Marca" Grid.Column="1" FontAttributes="Bold" />
+                    <Label Text="Modelo" Grid.Column="2" FontAttributes="Bold" />
+                    <Label Text="Año" Grid.Column="3" FontAttributes="Bold" />
+                    <Label Text="Tipo" Grid.Column="4" FontAttributes="Bold" />
+                    <Label Text="Transmision" Grid.Column="5" FontAttributes="Bold" />
+                    <Label Text="Cilindros" Grid.Column="6" FontAttributes="Bold" />
+                    <Label Text="Tren motriz" Grid.Column="7" FontAttributes="Bold" />
+                    <Label Text="ID Motor" Grid.Column="8" FontAttributes="Bold" />
+                    <Label Text="Combustible" Grid.Column="9" FontAttributes="Bold" />
+                    <Label Text="Imagen" Grid.Column="10" FontAttributes="Bold" />
+                </Grid>
+
+                <!-- Colección de datos -->
+
+                <CollectionView Grid.Row="1" ItemsSource="{Binding Autos}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text="{Binding id}" Grid.Column="0" />
+                                <Label Text="{Binding make}" Grid.Column="1" />
+                                <Label Text="{Binding model}" Grid.Column="2" />
+                                <Label Text="{Binding year}" Grid.Column="3" />
+                                <Label Text="{Binding vclass}" Grid.Column="4" />
+                                <Label Text="{Binding trany}" Grid.Column="5" />
+                                <Label Text="{Binding cylinders}" Grid.Column="6" />
+                                <Label Text="{Binding drive}" Grid.Column="7" />
+                                <Label Text="{Binding engid}" Grid.Column="8" />
+                                <Label Text="{Binding fueltype}" Grid.Column="9" />
+                                <Image Source="{Binding image}" Grid.Column="10" />
+
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

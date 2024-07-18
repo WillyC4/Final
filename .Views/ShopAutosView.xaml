@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Final.ShopAutosView"
+             Title="ShopAutosView"
+             xmlns:local="clr-namespace:Final.ViewModels">
+
+    <ContentPage.BindingContext>
+        <local:ConsultaPerfectaViewModel />
+    </ContentPage.BindingContext>
+
+    <StackLayout Padding="20" Margin="50,20,50,20">
+
+        <Entry Placeholder="Ingrese una ID" Text="{Binding PalabraUsuario}" />
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Padding="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" Text="Agregar Vehiculo al Carrito" Command="{Binding GuardarSQL}" Margin="30,30,30,30"/>
+                <Button Grid.Column="1" Text="Eliminar Vehiculo del Carrito" Command="{Binding EliminarAuto}" Margin="30,30,30,30"/>
+                <Button Grid.Column="2" Text="Actualizar Carrito" Command="{Binding LoadItem}" Margin="30,30,30,30"/>
+            </Grid>
+        </Grid>
+        
+
+
+        <ListView ItemsSource="{Binding _autos}" Margin="50,20,50,20">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding make}" Detail="{Binding model}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </StackLayout>
+
+
+</ContentPage>
